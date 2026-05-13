@@ -1,0 +1,24 @@
+{
+  "class_indices": {
+    "actinic_keratosis": 0,
+    "basal_cell_carcinoma": 1,
+    "dermatofibroma": 2,
+    "melanoma": 3,
+    "nevus": 4
+  },
+  "index_to_class": {
+    "0": "actinic_keratosis",
+    "1": "basal_cell_carcinoma",
+    "2": "dermatofibroma",
+    "3": "melanoma",
+    "4": "nevus"
+  },
+  "num_classes": 5,
+  "class_names": [
+    "actinic_keratosis",
+    "basal_cell_carcinoma",
+    "dermatofibroma",
+    "melanoma",
+    "nevus"
+  ]
+}
