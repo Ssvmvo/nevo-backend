@@ -1,19 +1,18 @@
 from datetime import datetime, timedelta
 from jose import JWTError, jwt
-from passlib.context import CryptContext
 from fastapi import HTTPException, Depends
 from fastapi.security import OAuth2PasswordBearer
 from core.config import get_settings
+import hashlib
 
-settings     = get_settings()
-pwd_context  = CryptContext(schemes=["bcrypt"], deprecated="auto")
+settings      = get_settings()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
 def hash_password(password: str) -> str:
-    return pwd_context.hash(password)
+    return hashlib.sha256(password.encode()).hexdigest()
 
 def verify_password(plain: str, hashed: str) -> bool:
-    return pwd_context.verify(plain, hashed)
+    return hashlib.sha256(plain.encode()).hexdigest() == hashed
 
 def create_token(data: dict) -> str:
     expire = datetime.utcnow() + timedelta(minutes=settings.access_token_expire_minutes)
