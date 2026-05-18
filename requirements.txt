@@ -7,6 +7,7 @@ python-jose[cryptography]
 pydantic
 pydantic-settings
 pillow
+numpy
 loguru
 python-dotenv
 email-validator
